@@ -115,7 +115,7 @@ const ContactSection = () => {
             {/* Static map placeholder */}
             <div className="mt-6 rounded-xl overflow-hidden border border-border aspect-[4/3] bg-muted flex items-center justify-center relative">
               <MapPin className="w-10 h-10 text-primary" />
-              <span className="absolute bottom-3 text-xs text-muted-foreground">г. Москва, ул. Строителей, д. 15</span>
+              <span className="absolute bottom-3 text-xs text-muted-foreground">г. Минск, ул. Аэродромная, д. 15</span>
             </div>
           </motion.div>
 
