@@ -69,14 +69,14 @@ const CalculatorSection = () => {
                 <button
                   key={t.value}
                   onClick={() => setType(t.value)}
-                  className={`py-3 px-4 rounded-lg text-sm font-medium transition-all border ${
+                  className={`py-2 px-1.5 md:py-3 md:px-4 rounded-lg text-[10px] md:text-sm font-medium transition-all border ${
                     type === t.value
                       ? "gradient-primary text-primary-foreground border-transparent"
                       : "bg-muted text-muted-foreground border-border hover:border-primary/30"
                   }`}
                 >
                   {t.label}
-                  <div className="text-xs mt-0.5 opacity-80">{t.price} BYN/м²</div>
+                  <div className="text-[9px] md:text-xs mt-0.5 opacity-80">{t.price} BYN/м²</div>
                 </button>
               ))}
             </div>
