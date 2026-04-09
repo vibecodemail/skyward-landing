@@ -110,10 +110,15 @@ const ContactSection = () => {
               </a>
             ))}
 
-            {/* Static map placeholder */}
-            <div className="mt-6 rounded-xl overflow-hidden border border-border aspect-[4/3] bg-muted flex items-center justify-center relative">
-              <MapPin className="w-10 h-10 text-primary" />
-              <span className="absolute bottom-3 text-xs text-muted-foreground">г. Минск, ул. Аэродромная, д. 15</span>
+            {/* Yandex Map */}
+            <div className="mt-6 rounded-xl overflow-hidden border border-border aspect-[4/3] relative">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=27.5615%2C53.9045&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzQ1MTQxMBJC0KDQvtGB0YHQuNGPLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0JrRgNCw0YHRgtGA0LLQuNGG0LAsIDE1IgoNjRlCQhXxhF9C&z=16"
+                className="w-full h-full absolute inset-0"
+                frameBorder="0"
+                allowFullScreen={true}
+                title="Yandex Map - г. Минск, ул. Матусевича, д. 8"
+              />
             </div>
           </motion.div>
 

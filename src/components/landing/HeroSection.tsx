@@ -61,7 +61,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-6 text-lg md:text-xl text-primary-foreground/80 max-w-xl mx-auto"
           >
-            Безупречное качество, быстрый монтаж, гарантия 10 лет
+            10 лет на рынке. Сегодня звонок завтра потолок.
           </motion.p>
 
           <motion.div
