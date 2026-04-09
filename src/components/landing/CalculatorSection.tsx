@@ -6,13 +6,13 @@ import { Calculator, Check } from "lucide-react";
 const ceilingTypes = [
   { value: "glossy", label: "Глянцевый", price: 45 },
   { value: "matte", label: "Матовый", price: 35 },
-  { value: "satin", label: "Сатиновый", price: 40 },
+  { value: "track", label: "С трековой системой", price: 65 },
 ];
 
 const extras = [
   { id: "chandelier", label: "Установка люстры", price: 50 },
   { id: "pipes", label: "Обход труб", price: 30 },
-  { id: "multilevel", label: "Многоуровневая конструкция", price: 80 },
+  { id: "track-system", label: "Монтаж трековой системы", price: 120 },
 ];
 
 const CalculatorSection = () => {
