@@ -17,9 +17,9 @@ type FormData = z.infer<typeof contactSchema>;
 const STORAGE_KEY = "ceiling_contact_form";
 
 const contactInfo = [
-  { icon: Phone, label: "+375 (29) 123-45-67", href: "tel:+375291234567" },
-  { icon: Mail, label: "info@potolki-pro.by", href: "mailto:info@potolki-pro.by" },
-  { icon: MapPin, label: "г. Минск, ул. Аэродромная, д. 15", href: "#" },
+  { icon: Phone, label: "+375 (33) 360-78-06", href: "tel:+375333607806" },
+  { icon: Mail, label: "info@ArtPotolki.by", href: "mailto:info@ArtPotolki.by" },
+  { icon: MapPin, label: "г. Минск, ул. Матусевича, д. 8", href: "#" },
   { icon: Clock, label: "Пн–Сб: 9:00–20:00", href: "#" },
 ];
 
@@ -113,7 +113,7 @@ const ContactSection = () => {
             {/* Yandex Map */}
             <div className="mt-6 rounded-xl overflow-hidden border border-border aspect-[4/3] relative">
               <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=27.5615%2C53.9045&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzQ1MTQxMBJC0KDQvtGB0YHQuNGPLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0JrRgNCw0YHRgtGA0LLQuNGG0LAsIDE1IgoNjRlCQhXxhF9C&z=16"
+                src="https://yandex.ru/map-widget/v1/?ll=27.5115%2C53.9225&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjM1OTIyMBJC0KDQvtGB0YHQuNGPLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0YPQu9C40YbQsCDQmtC-0YHRgtC40LrQuNC5INC40L3QvtC80L7RgNGB0LrQsNGPINC-0LssIDgiCg2OGUJCFd30QkI%2C&z=16"
                 className="w-full h-full absolute inset-0"
                 frameBorder="0"
                 allowFullScreen={true}

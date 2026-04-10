@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import smileLogo from "@/assets/smile.png";
 
 const quickLinks = [
   { label: "О нас", href: "#about" },
@@ -50,13 +51,13 @@ const Footer = () => {
             <h4 className="font-heading font-semibold mb-4">Контакты</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
-                <Phone className="w-4 h-4" /> +375 (29) 123-45-67
+                <Phone className="w-4 h-4" /> +375 (33) 360-78-06
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
-                <Mail className="w-4 h-4" /> info@potolki-pro.by
+                <Mail className="w-4 h-4" /> info@ArtPotolki.by
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
-                <MapPin className="w-4 h-4" /> г. Минск, ул. Аэродромная, 15
+                <MapPin className="w-4 h-4" /> г. Минск, ул. Матусевича, 8
               </li>
             </ul>
           </div>
@@ -65,14 +66,19 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold mb-4">Мы в соцсетях</h4>
             <div className="flex gap-3">
-              {["VK", "TG", "WA"].map((s) => (
+              {[
+                { label: "VK", href: "https://vk.com/club74222778" },
+                { label: "TG", href: "https://t.me/Art999993" }
+              ].map((s) => (
                 <a
-                  key={s}
-                  href="#"
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center text-sm font-semibold hover:bg-primary-foreground/20 transition-colors"
-                  aria-label={s}
+                  aria-label={s.label}
                 >
-                  {s}
+                  {s.label}
                 </a>
               ))}
             </div>
@@ -80,7 +86,14 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center text-sm text-primary-foreground/50">
-          © {new Date().getFullYear()} ПотолкиПро. Все права защищены.
+          © {new Date().getFullYear()} ArtPotolki. Все права защищены.
+        </div>
+        <div className="mt-4 flex justify-center">
+          <img
+            src={smileLogo}
+            alt="Amazon smile"
+            className="h-auto w-full max-w-xs"
+          />
         </div>
       </div>
     </footer>
