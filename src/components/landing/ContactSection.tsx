@@ -16,6 +16,12 @@ type FormData = z.infer<typeof contactSchema>;
 
 const STORAGE_KEY = "ceiling_contact_form";
 
+/** Получатель заявок: `VITE_CONTACT_FORM_EMAIL` в `.env` (FormSubmit — активация по первому письму). */
+const CONTACT_FORM_EMAIL = (import.meta.env.VITE_CONTACT_FORM_EMAIL ?? "").trim();
+const FORMSUBMIT_AJAX_URL = CONTACT_FORM_EMAIL
+  ? `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_FORM_EMAIL)}`
+  : "";
+
 const contactInfo = [
   { icon: Phone, label: "+375 (33) 360-78-06", href: "tel:+375333607806" },
   { icon: Mail, label: "info@ArtPotolki.by", href: "mailto:info@ArtPotolki.by" },
@@ -27,7 +33,7 @@ const serviceOptions = [
   "Глянцевый потолок",
   "Матовый потолок",
   "Потолок с трековой системой",
-  "Освещение и подсветка",
+  "Потолок со световыми линиями",
 ];
 
 const ContactSection = () => {
@@ -65,16 +71,44 @@ const ContactSection = () => {
       setErrors(fieldErrors);
       return;
     }
+    if (!FORMSUBMIT_AJAX_URL) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+      return;
+    }
     setStatus("loading");
-    // Simulate API call
-    await new Promise((r) => setTimeout(r, 1500));
-    console.log("Form submitted:", result.data);
-    setStatus("success");
-    localStorage.removeItem(STORAGE_KEY);
-    setTimeout(() => {
-      setForm({});
-      setStatus("idle");
-    }, 3000);
+    try {
+      const data = result.data;
+      const res = await fetch(FORMSUBMIT_AJAX_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          service: data.service,
+          message: data.message ?? "",
+          _subject: `Заявка с сайта — ${data.name}`,
+          _replyto: data.email,
+        }),
+      });
+      const payload = (await res.json()) as { success?: string | boolean; message?: string };
+      if (!res.ok || payload.success === "false" || payload.success === false) {
+        throw new Error(payload.message || "Ошибка отправки");
+      }
+      setStatus("success");
+      localStorage.removeItem(STORAGE_KEY);
+      setTimeout(() => {
+        setForm({});
+        setStatus("idle");
+      }, 3000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   return (
@@ -90,7 +124,7 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-10">
-          {/* Contact info + Map */}
+          {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
@@ -109,17 +143,6 @@ const ContactSection = () => {
                 <span className="text-foreground group-hover:text-primary transition-colors">{c.label}</span>
               </a>
             ))}
-
-            {/* Yandex Map */}
-            <div className="mt-6 rounded-xl overflow-hidden border border-border aspect-[4/3] relative">
-              <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=27.5115%2C53.9225&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjM1OTIyMBJC0KDQvtGB0YHQuNGPLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0YPQu9C40YbQsCDQmtC-0YHRgtC40LrQuNC5INC40L3QvtC80L7RgNGB0LrQsNGPINC-0LssIDgiCg2OGUJCFd30QkI%2C&z=16"
-                className="w-full h-full absolute inset-0"
-                frameBorder="0"
-                allowFullScreen={true}
-                title="Yandex Map - г. Минск, ул. Матусевича, д. 8"
-              />
-            </div>
           </motion.div>
 
           {/* Form */}

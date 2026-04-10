@@ -46,8 +46,8 @@ const Navbar = () => {
           }}
           className="text-xl font-heading font-bold tracking-tight"
         >
-          <span className={scrolled ? "text-primary" : "text-primary-foreground"}>Потолки</span>
-          <span className={scrolled ? "text-foreground" : "text-primary-foreground/80"}>Про</span>
+          <span className={scrolled ? "text-primary" : "text-primary-foreground"}>Art</span>
+          <span className={scrolled ? "text-foreground" : "text-primary-foreground/80"}>Potolki</span>
         </a>
 
         {/* Desktop */}
@@ -64,11 +64,11 @@ const Navbar = () => {
             </button>
           ))}
           <a
-            href="tel:+375291234567"
+            href="tel:+375333607806"
             className="flex items-center gap-2 gradient-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             <Phone className="w-4 h-4" />
-            +375 (29) 123-45-67
+            +375 (33) 360-78-06
           </a>
         </div>
 
@@ -110,7 +110,7 @@ const Navbar = () => {
                 className="flex items-center justify-center gap-2 gradient-primary text-primary-foreground px-5 py-3 rounded-full text-sm font-semibold mt-2"
               >
                 <Phone className="w-4 h-4" />
-                +375 (29) 123-45-67
+                +375 (33) 360-78-06
               </a>
             </div>
           </motion.div>

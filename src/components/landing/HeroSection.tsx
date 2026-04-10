@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import heroBg from "@/assets/hero-ceiling.jpg";
+import heroBg from "@/assets/hero-ceiling.png";
 
 const stats = [
   { value: 1000, suffix: "+", label: "выполненных проектов" },
-  { value: 5, suffix: "", label: "лет на рынке" },
+  { value: 10, suffix: "", label: "лет на рынке" },
   { value: 98, suffix: "%", label: "довольных клиентов" },
 ];
 

@@ -22,7 +22,7 @@ const Footer = () => {
           {/* Logo & desc */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="text-xl font-heading font-bold">
-              Потолки<span className="opacity-70">Про</span>
+              Art<span className="opacity-70">Potolki</span>
             </div>
             <p className="mt-3 text-sm text-primary-foreground/70 leading-relaxed">
               Профессиональная установка натяжных потолков в Минске и РБ. Качество, скорость, гарантия.

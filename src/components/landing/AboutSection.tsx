@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Shield, Users, Sparkles, Award } from "lucide-react";
-import masterPhoto from "@/assets/master-photo.jpg";
+import masterPhoto from "@/assets/master-photo.png";
 
 const values = [
   { icon: Shield, title: "Качество материалов", desc: "Используем только сертифицированные полотна европейских производителей" },
@@ -27,7 +27,7 @@ const AboutSection = () => {
             <div className="aspect-[4/5] max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-xl">
               <img
                 src={masterPhoto}
-                alt="Руководитель компании ПотолкиПро"
+                alt="Руководитель компании ArtPotolki"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 width={512}
@@ -35,7 +35,7 @@ const AboutSection = () => {
               />
             </div>
             <div className="absolute -bottom-4 -right-4 lg:right-auto lg:-bottom-6 lg:left-1/2 gradient-primary text-primary-foreground rounded-xl px-6 py-3 shadow-lg">
-              <div className="text-2xl font-bold font-heading">5+</div>
+              <div className="text-2xl font-bold font-heading">10+</div>
               <div className="text-sm opacity-90">лет опыта</div>
             </div>
           </motion.div>
@@ -50,7 +50,7 @@ const AboutSection = () => {
               Профессионализм и опыт
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Мы — команда профессионалов, которая уже более 5 лет создаёт идеальные потолки
+              Мы — команда профессионалов, которая уже более 10 лет создаёт идеальные потолки
               в домах и офисах. За это время мы выполнили более 1000 проектов и заслужили
               доверие сотен клиентов. Наша миссия — сделать ваш дом красивым и уютным.
             </p>

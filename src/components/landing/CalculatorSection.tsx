@@ -7,6 +7,7 @@ const ceilingTypes = [
   { value: "glossy", label: "Глянцевый", price: 45 },
   { value: "matte", label: "Матовый", price: 35 },
   { value: "track", label: "С трековой системой", price: 65 },
+  { value: "lines", label: "Со световыми линиями", price: 75 },
 ];
 
 const extras = [
