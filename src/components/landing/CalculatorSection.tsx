@@ -4,10 +4,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Calculator, Check } from "lucide-react";
 
 const ceilingTypes = [
-  { value: "glossy", label: "Глянцевый", price: 45 },
-  { value: "matte", label: "Матовый", price: 35 },
-  { value: "track", label: "С трековой системой", price: 65 },
-  { value: "lines", label: "Со световыми линиями", price: 75 },
+  { value: "glossy", label: "Глянцевый", price: 30 },
+  { value: "matte", label: "Матовый", price: 30 },
+  { value: "track", label: "Сатиновый", price: 30 },
+  /*{ value: "lines", label: "Со световыми линиями", price: 75 },*/
 ];
 
 const extras = [
@@ -29,9 +29,9 @@ const CalculatorSection = () => {
     
     const typePrice = ceilingTypes.find((t) => t.value === type)!.price;
     const base = typePrice * areaNum;
-    const lightCost = lightsNum * 350;
+    const lightCost = lightsNum * 20;
     
-    setTotal(base + lightCost);
+    setTotal(Math.max(350, base + lightCost));
   };
 
   return (
@@ -66,7 +66,7 @@ const CalculatorSection = () => {
             >
               {ceilingTypes.map((t) => (
                 <option key={t.value} value={t.value}>
-                  {t.label} — {t.price} BYN/м²
+                  {t.label}
                 </option>
               ))}
             </select>

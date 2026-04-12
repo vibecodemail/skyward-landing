@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, IdCard } from "lucide-react";
 import smileLogo from "@/assets/smile.png";
 
 const quickLinks = [
@@ -58,6 +58,9 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
                 <MapPin className="w-4 h-4" /> г. Минск, ул. Матусевича, 8
+              </li>
+              <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
+                <IdCard className="w-4 h-4" /> УНП AB9670340
               </li>
             </ul>
           </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+import smileArrow from "@/assets/smile.png";
 
 const navLinks = [
   { label: "О нас", href: "#about" },
@@ -44,10 +45,21 @@ const Navbar = () => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="text-xl font-heading font-bold tracking-tight"
+          className="relative block w-max min-w-0 max-w-full pb-6 text-xl font-heading font-bold tracking-tight"
+          aria-label="Art Potolki — наверх"
         >
-          <span className={scrolled ? "text-primary" : "text-primary-foreground"}>Art</span>
-          <span className={scrolled ? "text-foreground" : "text-primary-foreground/80"}>Potolki</span>
+          <span className="relative z-10 flex flex-nowrap leading-none">
+            <span className={scrolled ? "text-primary" : "text-primary-foreground"}>Art</span>
+            <span className={scrolled ? "text-foreground" : "text-primary-foreground/80"}>Potolki</span>
+          </span>
+          <img
+            src={smileArrow}
+            alt=""
+            width={1054}
+            height={237}
+            draggable={false}
+            className="pointer-events-none absolute bottom-0 left-0 right-0 z-0 h-auto w-full max-w-full select-none"
+          />
         </a>
 
         {/* Desktop */}
@@ -106,7 +118,7 @@ const Navbar = () => {
                 </button>
               ))}
               <a
-                href="tel:+375291234567"
+                href="tel:+375333607806"
                 className="flex items-center justify-center gap-2 gradient-primary text-primary-foreground px-5 py-3 rounded-full text-sm font-semibold mt-2"
               >
                 <Phone className="w-4 h-4" />
