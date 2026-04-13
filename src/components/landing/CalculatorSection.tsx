@@ -25,13 +25,23 @@ const CalculatorSection = () => {
 
   const calculateCost = () => {
     const areaNum = parseFloat(area) || 0;
-    const lightsNum = parseInt(lights) || 0;
+    const lightsNum = parseInt(lights) || 1;
     
-    const typePrice = ceilingTypes.find((t) => t.value === type)!.price;
+    const typePrice = ceilingTypes.find((t) => t.value === type)!.price; // ожидается 30
     const base = typePrice * areaNum;
     const lightCost = lightsNum * 20;
     
-    setTotal(Math.max(350, base + lightCost));
+    let total;
+    // Минимальный набор: площадь >= 10 и количество светильников >= 1
+    if (areaNum >= 10 && lightsNum >= 1) {
+      // Базовая стоимость для (10,1) = 350. Добавка за каждый лишний м² (+30) и лишний светильник (+20)
+      total = 350 + (areaNum - 10) * 30 + (lightsNum - 1) * 20;
+    } else {
+      // Если условия не выполнены — считаем без фиксированной надбавки
+      total = Math.max(350, base + lightCost);
+    }
+    
+    setTotal(total);
   };
 
   return (
@@ -74,28 +84,28 @@ const CalculatorSection = () => {
 
           {/* Area Input */}
           <div className="mb-6">
-            <label className="block text-sm font-semibold text-foreground mb-2">Площадь помещения (м²)</label>
+            <label className="block text-sm font-semibold text-foreground mb-2">Площадь помещения (м², минимум 1)</label>
             <input
               type="number"
               value={area}
               onChange={(e) => setArea(e.target.value)}
-              min="0"
-              step="0.1"
-              placeholder="Введите площадь"
+              min="1"
+              step="1"
+              placeholder="1"
               className="w-full p-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
 
           {/* Lights Input */}
           <div className="mb-8">
-            <label className="block text-sm font-semibold text-foreground mb-2">Количество светильников</label>
+            <label className="block text-sm font-semibold text-foreground mb-2">Количество светильников (минимум 1)</label>
             <input
               type="number"
               value={lights}
               onChange={(e) => setLights(e.target.value)}
-              min="0"
+              min="1"
               step="1"
-              placeholder="Введите количество"
+              placeholder="1"
               className="w-full p-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>

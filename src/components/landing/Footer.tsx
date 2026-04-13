@@ -91,13 +91,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center text-sm text-primary-foreground/50">
           © {new Date().getFullYear()} ArtPotolki. Все права защищены.
         </div>
-        <div className="mt-4 flex justify-center">
-          <img
-            src={smileLogo}
-            alt="Amazon smile"
-            className="h-auto w-full max-w-xs"
-          />
-        </div>
+
       </div>
     </footer>
   );
