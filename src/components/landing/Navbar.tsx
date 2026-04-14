@@ -45,7 +45,7 @@ const Navbar = () => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="relative block w-max min-w-0 max-w-full pb-6 text-xl font-heading font-bold tracking-tight"
+          className="relative block w-max min-w-0 max-w-full pb-[15px] text-xl font-heading font-bold tracking-tight"
           aria-label="Art Potolki — наверх"
         >
           <span className="relative z-10 flex flex-nowrap leading-none">
@@ -58,7 +58,7 @@ const Navbar = () => {
             width={1054}
             height={237}
             draggable={false}
-            className="pointer-events-none absolute bottom-0 left-0 right-0 z-0 h-auto w-full max-w-full select-none"
+            className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-auto w-[75%] max-w-[75%] -translate-x-1/2 select-none"
           />
         </a>
 
