@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Phone, MapPin, Clock, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Минимум 2 символа").max(100),
   phone: z.string().trim().min(10, "Введите корректный номер").max(20),
-  email: z.string().trim().email("Некорректный email").max(255),
   service: z.string().min(1, "Выберите услугу"),
   message: z.string().trim().max(1000).optional(),
 });
@@ -16,15 +15,14 @@ type FormData = z.infer<typeof contactSchema>;
 
 const STORAGE_KEY = "ceiling_contact_form";
 
-/** Получатель заявок: `VITE_CONTACT_FORM_EMAIL` в `.env` (FormSubmit — активация по первому письму). */
-const CONTACT_FORM_EMAIL = (import.meta.env.VITE_CONTACT_FORM_EMAIL ?? "").trim();
+/*const CONTACT_FORM_EMAIL = (import.meta.env.VITE_CONTACT_FORM_EMAIL ?? "").trim();*/
+const CONTACT_FORM_EMAIL = "kvetnevskiy@gmail.com";
 const FORMSUBMIT_AJAX_URL = CONTACT_FORM_EMAIL
   ? `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_FORM_EMAIL)}`
   : "";
 
 const contactInfo = [
   { icon: Phone, label: "+375 (33) 360-78-06", href: "tel:+375333607806" },
-  /*{ icon: Mail, label: "info@ArtPotolki.by", href: "mailto:info@ArtPotolki.by" },*/
   { icon: MapPin, label: "г. Минск, ул. Матусевича, д. 8", href: "#" },
   { icon: Clock, label: "C 9:00 до 20:00 без выходных", href: "#" },
 ];
@@ -88,11 +86,9 @@ const ContactSection = () => {
         body: JSON.stringify({
           name: data.name,
           phone: data.phone,
-          email: data.email,
           service: data.service,
           message: data.message ?? "",
           _subject: `Заявка с сайта — ${data.name}`,
-          _replyto: data.email,
         }),
       });
       const payload = (await res.json()) as { success?: string | boolean; message?: string };
@@ -101,10 +97,8 @@ const ContactSection = () => {
       }
       setStatus("success");
       localStorage.removeItem(STORAGE_KEY);
-      setTimeout(() => {
-        setForm({});
-        setStatus("idle");
-      }, 3000);
+      setForm({}); // очистка после успеха
+      setTimeout(() => setStatus("idle"), 3000);
     } catch {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 5000);
@@ -132,11 +126,7 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-6"
           >
             {contactInfo.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                className="flex items-center gap-4 group"
-              >
+              <a key={c.label} href={c.href} className="flex items-center gap-4 group">
                 <div className="w-11 h-11 rounded-xl gradient-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   <c.icon className="w-5 h-5 text-primary-foreground" />
                 </div>
@@ -156,7 +146,6 @@ const ContactSection = () => {
               {[
                 { name: "name", label: "Имя", type: "text", placeholder: "Ваше имя" },
                 { name: "phone", label: "Телефон", type: "tel", placeholder: "+375 (__) ___-__-__" },
-                { name: "email", label: "Email", type: "email", placeholder: "your@email.com" },
               ].map((field) => (
                 <div key={field.name}>
                   <label className="block text-sm font-semibold text-foreground mb-1.5">{field.label}</label>

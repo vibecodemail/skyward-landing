@@ -24,8 +24,14 @@ const Navbar = () => {
 
   const scrollTo = (href: string) => {
     setIsOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        console.error(`Element ${href} not found`);
+      }
+    }, 150); // 150 мс должно хватить для анимации закрытия меню
   };
 
   return (
