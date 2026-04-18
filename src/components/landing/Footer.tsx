@@ -54,9 +54,6 @@ const Footer = () => {
                 <Phone className="w-4 h-4" /> +375 (33) 360-78-06
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
-                <Mail className="w-4 h-4" /> info@ArtPotolki.by
-              </li>
-              <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
                 <MapPin className="w-4 h-4" /> г. Минск, ул. Матусевича, 8
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70">

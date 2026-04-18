@@ -24,7 +24,7 @@ const FORMSUBMIT_AJAX_URL = CONTACT_FORM_EMAIL
 
 const contactInfo = [
   { icon: Phone, label: "+375 (33) 360-78-06", href: "tel:+375333607806" },
-  { icon: Mail, label: "info@ArtPotolki.by", href: "mailto:info@ArtPotolki.by" },
+  /*{ icon: Mail, label: "info@ArtPotolki.by", href: "mailto:info@ArtPotolki.by" },*/
   { icon: MapPin, label: "г. Минск, ул. Матусевича, д. 8", href: "#" },
   { icon: Clock, label: "C 9:00 до 20:00 без выходных", href: "#" },
 ];
