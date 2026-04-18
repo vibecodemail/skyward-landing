@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Shield, Users, Sparkles, Award } from "lucide-react";
-import masterPhoto from "@/assets/master-photo.png";
+import masterPhoto from "@/assets/master-photo.jpg";
 
 const values = [
   { icon: Shield, title: "Качество материалов", desc: "Используем только сертифицированные полотна европейских производителей" },

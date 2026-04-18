@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { X } from "lucide-react";
 
-import p1 from "@/assets/portfolio-1.png";
+import p1 from "@/assets/portfolio-1.jpg";
 import p2 from "@/assets/portfolio-2.png";
 import p3 from "@/assets/portfolio-3.png";
 import p4 from "@/assets/portfolio-4.png";
@@ -18,11 +18,20 @@ import p12 from "@/assets/portfolio-12.jpg";
 import p13 from "@/assets/portfolio-13.jpg";
 import p14 from "@/assets/portfolio-14.jpg";
 import p15 from "@/assets/portfolio-15.jpg";
+import p17 from "@/assets/portfolio-17.jpg";
+import p18 from "@/assets/portfolio-18.jpg";
+import p19 from "@/assets/portfolio-19.jpg";
+import p20 from "@/assets/portfolio-20.jpg";
+import p21 from "@/assets/portfolio-21.jpg";
+import p22 from "@/assets/portfolio-22.jpg";
+import p23 from "@/assets/portfolio-23.jpg";
+import p24 from "@/assets/portfolio-24.jpg";
+
 
 const categories = ["Все", "Глянцевые", "Матовые", "С трековой системой", "Со световыми линиями"];
 
 const projects = [
-  /*{ id: "p1", img: p1, title: "Гостиная 20 м²", category: "Матовые", desc: "Матовый натяжной потолок с LED-подсветкой" },*/
+  { id: "p1", img: p1, title: "Кухня", category: "С трековой системой", desc: "Натяжной потолок с трековой системой" },
   { id: "p2", img: p2, title: "Кухня-студия", category: "Матовые", desc: "Матовый потолок со встроенными точечными светильниками" },
   { id: "p3", img: p3, title: "Спальня 30 м²", category: "Глянцевые", desc: "Глянцевый потолок с зеркальным эффектом" },
   { id: "p4-matte", img: p4, title: "Офис 30 м²", category: "Матовые", desc: "Матовый потолок для офисного помещения" },
@@ -42,7 +51,15 @@ const projects = [
   { id: "p12", img: p12, title: "Прихожая", category: "Со световыми линиями", desc: "Матовый потолок со световыми линиями" },
   { id: "p13", img: p13, title: "Комната 16 м²", category: "Со световыми линиями", desc: "Матовый потолок со световыми линиями и встроенными светильниками" },
   { id: "p14", img: p14, title: "Коридор", category: "Матовые", desc: "Матовый потолок со световыми линиями" },
-  { id: "p15", img: p15, title: "Комната 25 м²", category: "Со световыми линиями", desc: "Матовый потолок под наклоном со световыми линиями и встроенными светильниками" }
+  { id: "p15", img: p15, title: "Комната 25 м²", category: "Со световыми линиями", desc: "Матовый потолок под наклоном со световыми линиями и встроенными светильниками" },
+  { id: "p17", img: p17, title: "Душевая", category: "Матовые", desc: "Матовый потолок со встроенными светильниками" },
+  { id: "p18", img: p18, title: "Душевая", category: "Глянцевые", desc: "Глянцевый потолок со световыми линиями" },
+  { id: "p19", img: p19, title: "Туалет", category: "Матовые", desc: "Матовый потолок со световыми линиями и встроенной вытяжкой" },
+  { id: "p20", img: p20, title: "Комната 14 м²", category: "Матовые", desc: "Матовый потолок со встроенными светильниками" },
+  { id: "p21", img: p21, title: "Детская комната", category: "Глянцевые", desc: "Глянцевый потолок со встроенными светильниками" },
+  { id: "p22", img: p22, title: "Душевая комната", category: "Матовые", desc: "Матовый потолок со световыми линиями" },
+  { id: "p23", img: p23, title: "Туалетная комната", category: "Со световыми линиями", desc: "Матовый потолок со световыми линиями и встроенными светильниками" },
+  { id: "p24", img: p24, title: "Комната 12 м²", category: "Со световыми линиями", desc: "Многоуровневый потолок со световыми линиями" }
 ];
 
 const PortfolioSection = () => {
