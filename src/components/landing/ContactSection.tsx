@@ -16,7 +16,7 @@ type FormData = z.infer<typeof contactSchema>;
 const STORAGE_KEY = "ceiling_contact_form";
 
 /*const CONTACT_FORM_EMAIL = (import.meta.env.VITE_CONTACT_FORM_EMAIL ?? "").trim();*/
-const CONTACT_FORM_EMAIL = "kvetnevskiy@gmail.com";
+const CONTACT_FORM_EMAIL = "mravicii12@gmail.com";
 const FORMSUBMIT_AJAX_URL = CONTACT_FORM_EMAIL
   ? `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_FORM_EMAIL)}`
   : "";
