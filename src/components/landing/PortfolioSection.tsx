@@ -87,7 +87,8 @@ const PortfolioSection = () => {
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">Наши работы</h2>
