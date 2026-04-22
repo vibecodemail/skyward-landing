@@ -88,6 +88,9 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center text-sm text-primary-foreground/50">
           © {new Date().getFullYear()} ArtPotolki. Все права защищены.
         </div>
+        <div className="text-center text-sm text-primary-foreground/50 mt-2">
+          Разработка и поддержка - <a href="https://t.me/bizzzzone" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/70 transition-colors">Telegram</a>
+        </div>
 
       </div>
     </footer>
